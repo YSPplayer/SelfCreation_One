@@ -1,0 +1,70 @@
+﻿/*
+当前窗体尺寸：(x800, y450)  单位：像素
+//窗口画字：g.DrawString("www.siki.com学院",new Font("隶书",20),new SolidBrush(Color.Red),new Point(100,100));
+已知的档案：0，0坐标在窗口左上角 上——Y- 下——Y+ 左——X- 右——X+ 
+			【  G.DrawImage(image, 300, 160);
+                G.DrawImage(image, 300, 240);
+                G.DrawImage(image, 300, 320);
+                G.DrawImage(image, 300, 400);】
+-----------------------------------------------------------------------------------
+						  游戏父类物体（Gameobject）
+						    	|
+	  可移动物体（Movething）	|    不可移动物体（NotMovething）——
+	            |
+我坦克（MyTank）、敌人坦克（EnemyTank）、子弹（Bullet）
+-----------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------
+当前游戏窗口X,Y：310*455
+*/
+1类： Form 窗体
+	方法：	属性—Form.StartPosition(get: set:)【设置窗体位置】  return枚举:FormStartPosition
+			Form.CreateGraphics()【把窗体创建为画布】  return类：Graphics
+
+2类： Graphics 绘图图画
+	方法：	<void> Graphics.Clear()【把画布以指定颜色填充】 参数：Color类
+			<void> Graphics.DrawImage()【在画布指定位置绘制对应图片】 参数：Image类/int 像素坐标/int 像素坐标
+			<Graphics> Graphics.FromImag()【用传来的参数图片来绘制一个Graphics画布】 参数：BitMap:Image类
+
+3类：Color 颜色
+	方法：	
+
+4类：Image  图像父类
+
+5类：Bitmap(:Image)  图像子类
+	方法：	<void>Bitmap.MakeTransparent()【把当前图片的指定颜色部分变成透明】 参数：color类
+6类：Resources 系统类插入资源后自带的类
+	方法：	返回值为Image
+
+7类：Thread 线程类
+	方法：	<void>Thread.Sleep()【线程挂起的秒数】 参数：int类
+		    <void>Thread.Abort()【终止当前线程】
+			<void>Thread.Start()【运行当前线程】
+
+8类：ThreadStart 线程开始类
+	方法：后面加上线程要开始运行的方法东西
+
+9类：Rectangle 获取当前物体的矩形面类
+	方法：	<bool>Rectangle.IntersectsWith() 【确认当前矩形是否和参数矩形相交（用于碰撞检测）】 参数：Rectangle类
+			<bool>Rectangle.Contains() 【确认当前位置的点是否在这个矩形之内】 参数：point
+
+10类 Point 坐标类，X，Y，用于存储坐标
+
+11类 SoundPlayer类 用于播放音效
+	方法:	<Stream>SoundPlayer.Stream 【得到需要播放的音频资源】 返回的是一个音频值
+			<void>SoundPlayer.Play 【播放当前音效】 
+
+12类 MessageBox类 用于显示窗口的信息
+	方法：	<void>MessageBox.Show() 【在窗口中弹出提示框】 参数：String
+-----------------------------------------------------
+自创类：
+GameObject     游戏父类
+GameObjectManager  游戏物体管理类
+Movething      移动类：游戏父类
+NotMovething   不移动类：游戏父类
+GameFramework  管理游戏运行类
+Explosion  
+Bullet 子弹类
+EnemyTank 对方坦克类
+MyTank        玩家坦克类
+SoundMananger   音乐类
