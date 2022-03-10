@@ -97,11 +97,14 @@
     <None Include="Resources\ExitButtonEd.png" />
     <None Include="Resources\CheatButtonPre.png" />
     <None Include="Resources\CheatButtonEd.png" />
-    <None Include="Resources\temp.png" />
-    <None Include="Resources\CheatButton.png" />
-    <None Include="Resources\HelpButton.png" />
-    <None Include="Resources\StartButton.png" />
-    <None Include="Resources\ExitButton.png" />
+    <None Include="Resources\CheatButtoning.png" />
+    <None Include="Resources\ExitButtoning.png" />
+    <None Include="Resources\HelpButtoning.png" />
+    <None Include="Resources\StartButtoning.png" />
+    <None Include="Resources\ExitBox.png" />
+    <None Include="Resources\ExitBoxYes.png" />
+    <None Include="Resources\ExitBoxNo.png" />
+    <None Include="Resources\MenuBackgroundGame.png" />
     <Content Include="函数使用说明.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

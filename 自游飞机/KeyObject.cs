@@ -45,7 +45,21 @@ namespace 自游飞机
             ButtonArea = new Rectangle(x, y, width, height);
             return ButtonArea.Contains(mouseLocation.X, mouseLocation.Y);
         }
-
+        /// <summary>
+        /// 检查鼠标是否在按钮物体内点击的方法
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="mouseX"></param>
+        /// <param name="mouseY"></param>
+        /// <returns></returns>
+        public static bool CheckTouch(int x, int y, int width, int height,int mouseX,int mouseY)
+        {
+            ButtonArea = new Rectangle(x, y, width, height);
+            return ButtonArea.Contains(mouseX, mouseY);
+        }
         /// <summary>
         /// 获取当前鼠标的窗口坐标位置
         /// </summary>
@@ -54,6 +68,32 @@ namespace 自游飞机
         {
             mouseLocation.X = e.X;
             mouseLocation.Y = e.Y;
+        }
+        /// <summary>
+        /// 检查当前鼠标是否只在当前退出窗口的一边
+        /// </summary>
+        /// <returns></returns>
+        public static int IsOnSide(int x, int y, int width, int height, int mouseX, int mouseY)
+        {
+            if (CheckTouch(x, y, width, height, mouseX, mouseY))
+            {
+                //返回1表示在左侧，否则在右侧
+                return (mouseLocation.X < x + width / 2) ? 1 : 0;
+            }
+            return -1;
+        }
+        /// <summary>
+        /// 检查当前鼠标点击的位置是否只在当前退出窗口的一边
+        /// </summary>
+        /// <returns></returns>
+        public static int IsOnSide(int x, int y, int width, int height)
+        {
+            if (CheckTouch(x, y, width, height))
+            {
+                //返回1表示在左侧，否则在右侧
+                return (mouseLocation.X < x + width / 2) ? 1 : 0;
+            }
+            return -1;
         }
     }
 }

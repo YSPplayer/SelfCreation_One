@@ -73,6 +73,16 @@ namespace 自游飞机.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap CheatButtoning {
+            get {
+                object obj = ResourceManager.GetObject("CheatButtoning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap CheatButtonPre {
             get {
                 object obj = ResourceManager.GetObject("CheatButtonPre", resourceCulture);
@@ -83,9 +93,49 @@ namespace 自游飞机.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap ExitBox {
+            get {
+                object obj = ResourceManager.GetObject("ExitBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ExitBoxNo {
+            get {
+                object obj = ResourceManager.GetObject("ExitBoxNo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ExitBoxYes {
+            get {
+                object obj = ResourceManager.GetObject("ExitBoxYes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap ExitButtonEd {
             get {
                 object obj = ResourceManager.GetObject("ExitButtonEd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ExitButtoning {
+            get {
+                object obj = ResourceManager.GetObject("ExitButtoning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,6 +163,16 @@ namespace 自游飞机.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap HelpButtoning {
+            get {
+                object obj = ResourceManager.GetObject("HelpButtoning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap HelpButtonPre {
             get {
                 object obj = ResourceManager.GetObject("HelpButtonPre", resourceCulture);
@@ -133,9 +193,29 @@ namespace 自游飞机.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap MenuBackgroundGame {
+            get {
+                object obj = ResourceManager.GetObject("MenuBackgroundGame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap StartButtonEd {
             get {
                 object obj = ResourceManager.GetObject("StartButtonEd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap StartButtoning {
+            get {
+                object obj = ResourceManager.GetObject("StartButtoning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -121,17 +121,26 @@
   <data name="CheatButtonEd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CheatButtonEd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CheatButtoning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheatButtoning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CheatButtonPre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CheatButtonPre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ExitButtonEd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ExitButtonEd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ExitButtoning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExitButtoning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ExitButtonPre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ExitButtonPre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HelpButtonEd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HelpButtonEd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HelpButtoning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HelpButtoning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HelpButtonPre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HelpButtonPre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,7 +151,22 @@
   <data name="StartButtonEd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StartButtonEd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="StartButtoning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartButtoning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="StartButtonPre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StartButtonPre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExitBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExitBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExitBoxNo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExitBoxNo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExitBoxYes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExitBoxYes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuBackgroundGame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuBackgroundGame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
