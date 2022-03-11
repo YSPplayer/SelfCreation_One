@@ -63,6 +63,26 @@ namespace 自游飞机.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap BulletDown {
+            get {
+                object obj = ResourceManager.GetObject("BulletDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap BulletUp {
+            get {
+                object obj = ResourceManager.GetObject("BulletUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap CheatButtonEd {
             get {
                 object obj = ResourceManager.GetObject("CheatButtonEd", resourceCulture);
@@ -196,6 +216,46 @@ namespace 自游飞机.Properties {
         internal static System.Drawing.Bitmap MenuBackgroundGame {
             get {
                 object obj = ResourceManager.GetObject("MenuBackgroundGame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap MyPlane {
+            get {
+                object obj = ResourceManager.GetObject("MyPlane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Star1 {
+            get {
+                object obj = ResourceManager.GetObject("Star1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Star2 {
+            get {
+                object obj = ResourceManager.GetObject("Star2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Star3 {
+            get {
+                object obj = ResourceManager.GetObject("Star3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

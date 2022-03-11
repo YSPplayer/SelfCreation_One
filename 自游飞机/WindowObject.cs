@@ -17,6 +17,10 @@ namespace 自游飞机
         public int Width { get; set; }
         public int Height { get; set; }
         public Bitmap ImageObject { get; set; }
+        //游戏画布
+        public static Bitmap tempBmp= new Bitmap(550, 550);
+        public static Graphics tempG = Graphics.FromImage(tempBmp);
+
         private Graphics ImageG = Form1.WindowG;
 
         public void DrawSelf()
@@ -24,9 +28,20 @@ namespace 自游飞机
             ImageG.DrawImage(ImageObject, X, Y);
         }
 
+        public void DrawGameSelf()
+        {
+            tempG.DrawImage(ImageObject, X, Y);
+        }
+
         public virtual void Update()
         {
             DrawSelf();
+        }
+
+        //游戏更新，需要在一个画布上作画，做完之后再贴上去
+        public virtual void GameUpdate()
+        {
+            DrawGameSelf();
         }
     }
 }

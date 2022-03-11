@@ -1,5 +1,6 @@
 ﻿/*
 当前窗体尺寸：(x800, y450)  单位：像素
+当前游戏窗口大小（x450,y450）
 //窗口画字：g.DrawString("www.siki.com学院",new Font("隶书",20),new SolidBrush(Color.Red),new Point(100,100));
 已知的档案：0，0坐标在窗口左上角 上——Y- 下——Y+ 左——X- 右——X+ 
 			【  G.DrawImage(image, 300, 160);

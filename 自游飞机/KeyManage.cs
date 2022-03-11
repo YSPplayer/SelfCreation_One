@@ -30,7 +30,7 @@ namespace 自游飞机
         public static bool iskeyExitClick;
 
         public static bool iskeyExitBoxClick;
-
+        public static bool isKeyOpenGameBoxClick;
         //帧数的速度
         public static int Speed;
         //生成按钮所有的对象
@@ -72,7 +72,7 @@ namespace 自游飞机
                 {
                       foreach (KeyObject NewMenu in NewMenus)
                       {
-                              NewMenu.Update();
+                         NewMenu.Update();
                       }
                 }
     
@@ -98,6 +98,49 @@ namespace 自游飞机
                     Menus[3].Update();
                     CreateNewExitBox();
                 }
+        }
+        /// <summary>
+        /// 生成游戏开始的界面
+        /// </summary>
+        public static void GameBoxUpdate()
+        {
+            if (Speed < 5)
+            {
+                //创造一种按钮已经被点击的动画效果
+                Speed++;
+                for (int index = 0; index < NewMenus.Count; index++)
+                {
+                    if (NewMenus[0] != keyStartEd)
+                    {
+                        NewMenus[0] = keyStartEd;
+                    }
+                    NewMenus[index].Update();
+                }
+
+            }
+            else if (Speed < 10)
+            {
+                Speed++;
+                foreach (KeyObject menu in Menus)
+                {
+                    menu.Update();
+                }
+            }
+            else
+            {
+                Form1.WindowG.Clear(Form1.DefaultForeColor);
+                CreateGameObject();
+                isKeyOpenGameBoxClick = false;
+                GameManage.isGameBegins = true;
+            }
+        }
+        /// <summary>
+        /// 在这里统一完成开始游戏时创建游戏对象的工作，游戏开始之前创建
+        /// </summary>
+        private static void CreateGameObject()
+        { 
+            GameManage.DrawStars();
+            GameManage.CreatMyPlane();
         }
         /// <summary>
         /// 向集合内添加菜单按钮

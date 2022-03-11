@@ -21,6 +21,7 @@ namespace 自游飞机
         {
 
             InitializeComponent();
+            //WindowObject.tempG ;
             //画布必须在这声明，在下面声明的话会把默认的电脑桌面当做画布
             WindowG = this.CreateGraphics();
             thread = new Thread(new ThreadStart(GameInThread));
@@ -65,6 +66,8 @@ namespace 自游飞机
             if (KeyObject.CheckTouch(KeyManage.keyStartPre.X, KeyManage.keyStartPre.Y, KeyManage.keyStartPre.Width / 2, KeyManage.keyStartPre.Height / 2, e.X, e.Y))
             {
                 KeyManage.iskeyStartClick = true;
+                KeyManage.isKeyOpenGameBoxClick = true;
+                KeyManage.Speed = 0;
             }
             else if (KeyObject.CheckTouch(KeyManage.keyCheatPre.X, KeyManage.keyCheatPre.Y, KeyManage.keyCheatPre.Width / 2, KeyManage.keyCheatPre.Height / 2, e.X, e.Y))
             {
@@ -80,7 +83,7 @@ namespace 自游飞机
             }
             else if (KeyObject.IsOnSide(KeyManage.KeyExitBox.X, KeyManage.KeyExitBox.Y + 50, KeyManage.KeyExitBox.Width / 3, KeyManage.KeyExitBox.Height / 3, e.X, e.Y) == 1)
             {
-                //点击是则关闭游戏窗口
+                //点击则是关闭游戏窗口
                 KeyManage.iskeyExitBoxClick = true;
                 KeyManage.isOpenExitBox = false;
                 KeyManage.Speed = 0;
@@ -101,6 +104,25 @@ namespace 自游飞机
                 KeyManage.iskeyHelpClick = false;
                 KeyManage.iskeyExitClick = false;
             }
+        }
+        /// <summary>
+        /// 当按下键盘的按键时触发
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            MyPlane.MoveKey(e);
+        }
+
+        /// <summary>
+        /// 当按下的键被抬起时触发
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            MyPlane.KeyRelease(e);
         }
     }
 }
