@@ -30,6 +30,7 @@ namespace 自游飞机
         public override void GameUpdate()
         {
             ImageObject.MakeTransparent(Color.Black);
+            checkDestory();
             Move();
             base.GameUpdate();
         }
@@ -38,7 +39,49 @@ namespace 自游飞机
         /// </summary>
         private void Move()
         {
-            Y = Y - Speed;
+            switch (Flag)
+            {
+                case Flag.player:
+                     Y = Y - Speed;
+                break;
+                case Flag.enemy:
+                    Y = Y + Speed;
+                    break;
+            }
+         
+        }
+        /// <summary>
+        /// 检查子弹是否需要被销毁以及攻击到敌人的方法
+        /// </summary>
+        private void checkDestory()
+        {
+            if (X < 0 || X > 550 || Y < 0 || Y > 550)
+            {
+                this.isDestroy = true;return;
+            }
+            switch(Flag)
+            {
+                case Flag.player:
+                    if (GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)) != null)
+                    {
+                        GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)).HP --;
+                        Explosive explosive = new Explosive(X + 9, Y + 9);
+                        GameManage.explosives.Add(explosive);
+                        this.isDestroy = true;
+                    }
+                    break;
+                case Flag.enemy:
+                    if (GameManage.IsCollidePlayer(GetRectangle(X + 9, Y + 9, 4, 4)) != null)
+                    {
+                        GameManage.IsCollidePlayer(GetRectangle(X + 9, Y + 9, 4, 4)).HP --;
+                        Explosive explosive = new Explosive(X + 9, Y + 9);
+                        GameManage.explosives.Add(explosive);
+                        this.isDestroy = true;
+                    }
+                    break;
+            }
+
+
         }
     }
 }

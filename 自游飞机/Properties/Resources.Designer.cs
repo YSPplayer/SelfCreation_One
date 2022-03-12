@@ -113,6 +113,36 @@ namespace 自游飞机.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap EnemyPlane1 {
+            get {
+                object obj = ResourceManager.GetObject("EnemyPlane1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap EnemyPlane2 {
+            get {
+                object obj = ResourceManager.GetObject("EnemyPlane2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap EnemyPlane3 {
+            get {
+                object obj = ResourceManager.GetObject("EnemyPlane3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap ExitBox {
             get {
                 object obj = ResourceManager.GetObject("ExitBox", resourceCulture);
@@ -166,6 +196,56 @@ namespace 自游飞机.Properties {
         internal static System.Drawing.Bitmap ExitButtonPre {
             get {
                 object obj = ResourceManager.GetObject("ExitButtonPre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap EXP1 {
+            get {
+                object obj = ResourceManager.GetObject("EXP1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap EXP2 {
+            get {
+                object obj = ResourceManager.GetObject("EXP2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap EXP3 {
+            get {
+                object obj = ResourceManager.GetObject("EXP3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap EXP4 {
+            get {
+                object obj = ResourceManager.GetObject("EXP4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap EXP5 {
+            get {
+                object obj = ResourceManager.GetObject("EXP5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

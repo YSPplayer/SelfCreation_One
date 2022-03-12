@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bullet.cs" />
+    <Compile Include="EnemyPlane.cs" />
+    <Compile Include="Explosive.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +118,14 @@
     <None Include="Resources\Star3.bmp" />
     <None Include="Resources\BulletDown.jpg" />
     <None Include="Resources\BulletUp.jpg" />
+    <None Include="Resources\EnemyPlane1.png" />
+    <None Include="Resources\EnemyPlane2.png" />
+    <None Include="Resources\EnemyPlane3.png" />
+    <None Include="Resources\EXP1.bmp" />
+    <None Include="Resources\EXP2.bmp" />
+    <None Include="Resources\EXP3.bmp" />
+    <None Include="Resources\EXP4.bmp" />
+    <None Include="Resources\EXP5.bmp" />
     <Content Include="函数使用说明.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

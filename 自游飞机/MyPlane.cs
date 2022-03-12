@@ -26,16 +26,18 @@ namespace 自游飞机
         private static bool isMoveDown;
         private static bool isMoveLeft;
         private static bool isMoveRight;
+
         //获取玩家的移动方向
         private static Direction dir;
         //检查玩家是否需要攻击
         private static bool isAttack;
-        //这里需要继承基础的，因为你上面已经声明过了
+
         public MyPlane(Bitmap gameMap, int x, int y)
         {
             this.X = x;
             this.Y = y;
             this.Speed = 4;
+            this.HP = 5;
             this.ImageObject = gameMap;
             this.Width = gameMap.Width;
             this.Height = gameMap.Height;
@@ -44,13 +46,27 @@ namespace 自游飞机
         {
             ImageObject.MakeTransparent(Color.White);
             CollisionCheck();
+            DestructiveCollisionCheck();
+            Destory();
             Move();
             ShootBullet();
             base.GameUpdate();
         }
-
         /// <summary>
-        /// 检查是否和其他物体碰撞 
+        /// 检查是否和其他物体碰撞（）
+        /// </summary>
+        private void DestructiveCollisionCheck()
+        {
+            if (GameManage.IsCollideEnemy(GetRectangle(X,Y+5, ImageObject.Width, ImageObject.Height)) != null)
+            {
+                GameManage.IsCollideEnemy(GetRectangle(X, Y + 5, ImageObject.Width, ImageObject.Height)).isDestroy = true;
+                HP--;
+                Explosive explosive = new Explosive(X, Y + 5);
+                GameManage.explosives.Add(explosive);
+            }
+        }
+        /// <summary>
+        /// 检查是否和边界碰撞 
         /// </summary>
         private void CollisionCheck()
         {
@@ -154,8 +170,10 @@ namespace 自游飞机
         {
             if (isAttack)
             {
-                Bullet bullet = new Bullet(Resources.BulletUp, X + ImageObject.Width/2, Y, 4, Flag.player);
+                Bullet bullet = new Bullet(Resources.BulletUp, X + ImageObject.Width/2-8, Y-4, 4, Flag.player);
                 GameManage.playerBullets.Add(bullet);
+                //在这里设置false，它就只会发射1个子弹了
+                isAttack = false;
             }
         }
         /// <summary>
@@ -184,7 +202,7 @@ namespace 自游飞机
                     isMove = true;
                     break;
                 case Keys.J:
-                    isAttack=true;
+                    isAttack =true;
                     break;
 
             }

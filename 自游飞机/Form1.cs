@@ -17,6 +17,8 @@ namespace 自游飞机
 
         public static Graphics WindowG;
         public Thread thread;
+        //检查当前的按键按下的行为是否持续，持续就返回false
+        private static bool isKeyDuration;
         public Form1()
         {
 
@@ -112,7 +114,14 @@ namespace 自游飞机
         /// <param name="e"></param>
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            MyPlane.MoveKey(e);
+            if (!isKeyDuration)
+            {
+                MyPlane.MoveKey(e);
+            }
+            if (e.KeyCode == Keys.J)
+            {
+                isKeyDuration = true;
+            }
         }
 
         /// <summary>
@@ -123,6 +132,7 @@ namespace 自游飞机
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             MyPlane.KeyRelease(e);
+            isKeyDuration = false;
         }
     }
 }

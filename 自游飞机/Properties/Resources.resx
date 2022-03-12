@@ -187,4 +187,28 @@
   <data name="BulletUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BulletUp.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EnemyPlane1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnemyPlane1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnemyPlane2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnemyPlane2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnemyPlane3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnemyPlane3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EXP1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EXP1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EXP2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EXP2.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EXP3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EXP3.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EXP4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EXP4.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EXP5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EXP5.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

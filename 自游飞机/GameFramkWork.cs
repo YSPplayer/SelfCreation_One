@@ -51,9 +51,7 @@ namespace 自游飞机
             {
                 //在这里绘制游戏的画布，没有这一步就会无限的增加
                 WindowObject.tempG.Clear(Color.Black);
-                GameManage.GameBackgroundUpdate();
-                GameManage.MyPlaneUpdate();
-                GameManage.playerBulletUpdate();
+                GameManage.Update();
                 Form1.WindowG.DrawImage(WindowObject.tempBmp, 0, 0);
               
             }

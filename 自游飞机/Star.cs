@@ -29,11 +29,11 @@ namespace 自游飞机
         /// </summary>
         private void Move()
         {
-            if(this.Y<=0)
+            if(this.Y > 450)
             {
-                this.Y = 450;
+                this.Y = 0;
             }
-            this.Y -= this.Speed;
+            this.Y += this.Speed;
         }
     }
 }
