@@ -28,7 +28,12 @@ namespace 自游飞机
             this.X = x;
             this.Y = y;
         }
-        private static Bitmap GetDrawPicture(int index)
+        /// <summary>
+        /// 返回特效的对应索引图片
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static Bitmap GetDrawPicture(int index)
         {
             return bitmaps[index];
         }

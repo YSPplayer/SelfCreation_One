@@ -33,10 +33,13 @@ namespace 自游飞机
         public override void GameUpdate()
         {
             ImageObject.MakeTransparent(Color.White);
-            CheckDestory();
-            Destory();
-            Move();
-            ShootBullet();
+            if (!GameManage.isPlayGif)
+            {
+                CheckDestory();
+                Destory();
+                Move();
+                ShootBullet();
+            }
             base.GameUpdate();
         }
         /// <summary>

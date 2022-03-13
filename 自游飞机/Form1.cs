@@ -14,7 +14,6 @@ namespace 自游飞机
 {
     public partial class Form1 : Form
     {
-
         public static Graphics WindowG;
         public Thread thread;
         //检查当前的按键按下的行为是否持续，持续就返回false
@@ -35,9 +34,18 @@ namespace 自游飞机
         private void GameInThread()
         {
               int sleepTime = 1000 / 60;
-              GameFramkWork.Start();
+            //Bitmap tempBmp = new Bitmap(550, 550);
+            //Graphics tempG = Graphics.FromImage(tempBmp);
+            //bitmap.MakeTransparent(Color.White);
+            //bitmap.MakeTransparent(Color.Black);
+            //Bitmap bitmap = Resources.PlayerSkillPicture2;
+             GameFramkWork.Start();
               while (true)
               {
+                //tempG.Clear(Color.Black);
+               // tempG.DrawImage(bitmap, 0, 0);
+               //WindowG.DrawImage(tempBmp, 0, 0);
+               //WindowG.DrawImage(bitmap2, 0, 0);
                 GameFramkWork.Update();
                 Thread.Sleep(sleepTime);
               }

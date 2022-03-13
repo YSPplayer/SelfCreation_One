@@ -31,7 +31,9 @@ namespace 自游飞机
         private static Direction dir;
         //检查玩家是否需要攻击
         private static bool isAttack;
-
+        //检查玩家是否发动技能
+        public static bool isSkill1;
+        public static bool isSkill2;
         public MyPlane(Bitmap gameMap, int x, int y)
         {
             this.X = x;
@@ -45,11 +47,15 @@ namespace 自游飞机
         public override void GameUpdate()
         {
             ImageObject.MakeTransparent(Color.White);
-            CollisionCheck();
-            DestructiveCollisionCheck();
-            Destory();
-            Move();
-            ShootBullet();
+            if (!GameManage.isPlayGif)
+            {
+                CollisionCheck();
+                DestructiveCollisionCheck();
+                Destory();
+                Move();
+                ShootBullet();
+                StartSkill();
+            }
             base.GameUpdate();
         }
         /// <summary>
@@ -177,6 +183,16 @@ namespace 自游飞机
             }
         }
         /// <summary>
+        /// 飞机发动技能时调用，向集合中增加技能对象
+        /// </summary>
+        private void StartSkill()
+        {
+            if (isSkill1)
+            {              
+                //isSkill1 = false;
+            }
+        }
+        /// <summary>
         /// 获取当前键盘按下的按键
         /// </summary>
         /// <param name="e"></param>
@@ -204,6 +220,12 @@ namespace 自游飞机
                 case Keys.J:
                     isAttack =true;
                     break;
+                case Keys.G:
+                    isSkill1 = true;
+                    break;
+                case Keys.H:
+                    isSkill2 = true;
+                    break;
 
             }
         }
@@ -223,8 +245,8 @@ namespace 自游飞机
                     isMove = false;
                 break;
                 case Keys.J:
-                    isAttack = false; 
-                break;
+                    isAttack = false;
+                    break;
             }
         }
     }

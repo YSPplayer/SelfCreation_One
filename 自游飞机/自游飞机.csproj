@@ -60,6 +60,7 @@
     <Compile Include="Movthing.cs" />
     <Compile Include="KeyManage.cs" />
     <Compile Include="KeyObject.cs" />
+    <Compile Include="SkillPicture.cs" />
     <Compile Include="Star.cs" />
     <Compile Include="MyPlane.cs" />
     <Compile Include="NotMoving.cs" />
@@ -126,6 +127,21 @@
     <None Include="Resources\EXP3.bmp" />
     <None Include="Resources\EXP4.bmp" />
     <None Include="Resources\EXP5.bmp" />
+    <None Include="Resources\lp.png" />
+    <None Include="Resources\lpf.png" />
+    <None Include="Resources\PlayerSkillPicture.png" />
+    <None Include="Resources\Guard.png" />
+    <None Include="Resources\Skill0.png" />
+    <None Include="Resources\Skill1.png" />
+    <None Include="Resources\Skill2.png" />
+    <None Include="Resources\Skill3.png" />
+    <None Include="Resources\Skill4.png" />
+    <None Include="Resources\Skill5.png" />
+    <None Include="Resources\Skill6.png" />
+    <None Include="Resources\Skill7.png" />
+    <None Include="Resources\Skill8.png" />
+    <None Include="Resources\Skill9.png" />
+    <None Include="Resources\56910167.png" />
     <Content Include="函数使用说明.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

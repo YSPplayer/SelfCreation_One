@@ -32,20 +32,48 @@ namespace 自游飞机
 
         //创建特效的集合
         public static List<Explosive> explosives = new List<Explosive>();
+        public static List<SkillPicture> skillPictures = new List<SkillPicture>();
+
+        //创建生命值的集合
+        public static List<NotMoving> lpfs = new List<NotMoving>();
+        public static List<NotMoving> lps = new List<NotMoving>();
+
+        //创建技能图片的集合
+        public static List<NotMoving> skillPictures1 = new List<NotMoving>();
+        public static List<NotMoving> skillPictures2= new List<NotMoving>();
 
         //控制飞机生成的速度
         private static int generationSpeed;
+        
+        //控制技能图片生成的速度
+        private static int skillPictureSpeed=0;
+        //控制技能图片生成的加速度
+        private static int accelerationConounter = 0;
+
+        //播放技能图片的时机
+        public static bool isPlayGif;
+        public static bool isPlaySkill1;
+        public static bool isPlaySkill2;
+        //播放动图的时机检查
+        public static bool isStartGif;
+
         /// <summary>
         /// 管理所有游戏物体更新的方法集合
         /// </summary>
         public static void Update()
         {
-            GameBackgroundUpdate();
-            MyPlaneUpdate();
-            EnPlaneUpdate();
-            PlayerBulletUpdate();
-            EnemyBulletUpdate();
-            ExplosivesUpdate();
+
+               //最后绘制的图片的图层在最上面
+                SkillPictureUpdate();
+                GameBackgroundUpdate();
+                MyPlaneUpdate();
+                EnPlaneUpdate();
+                PlayerBulletUpdate();
+                EnemyBulletUpdate();
+                ExplosivesUpdate();
+                HealthUpdate();
+                SkillPicture1Update();
+                SkillPicture2Update();
         }
 
 
@@ -85,7 +113,7 @@ namespace 自游飞机
             }
         }
         /// <summary>
-        /// 生成爆炸特效
+        /// 生成以及销毁爆炸特效
         /// </summary>
         private static void ExplosivesUpdate()
         {
@@ -100,6 +128,125 @@ namespace 自游飞机
                     explosives.Remove(explosives[index]);
                 }
             }
+        }
+        /// <summary>
+        /// 生成以及销毁技能特效
+        /// </summary>
+        private static void SkillPictureUpdate()
+        {
+            if (isStartGif)
+            {
+                for (int index = 0; index < skillPictures.Count; index++)
+                {
+                    skillPictures[index].GameUpdate();
+                }
+            }
+        }
+        /// <summary>
+        /// 生成技能图片特效
+        /// </summary>
+        private static void SkillPicture1Update()
+        {
+            
+            if (MyPlane.isSkill1)
+            {
+                skillPictureSpeed++;
+                isPlayGif = true;
+                isPlaySkill1 = true;
+                for (int index = 0; index < skillPictures1.Count; index++)
+                {
+                    skillPictures1[index].GameUpdate();
+                    if (skillPictureSpeed > 1)
+                    {
+                        skillPictures1[index].X += 20- accelerationConounter;//15
+                        skillPictureSpeed = 0;
+                        if (accelerationConounter < 22)//17
+                        {
+                            accelerationConounter++;
+                        }
+                        else
+                        {
+                            accelerationConounter += 2;
+                        }
+                        //判断图片是否左移了，左移一段结束动画效果
+                        if (20 - accelerationConounter < 0 && skillPictures1[index].X <= 42)
+                        {
+                            MyPlane.isSkill1 = false;
+                            isStartGif = true;
+                            accelerationConounter = 0;
+                            return;
+                        }
+                    }
+                }
+            }
+            else if (isPlayGif && isPlaySkill1)
+            {
+                for (int index = 0; index < skillPictures1.Count; index++)
+                {
+                    skillPictures1[index].GameUpdate();
+                }
+            }
+
+        }
+        /// <summary>
+        /// 生成技能图片特效2
+        /// </summary>
+        private static void SkillPicture2Update()
+        {
+
+            if (MyPlane.isSkill2)
+            {
+                skillPictureSpeed++;
+                isPlayGif = true;
+                isPlaySkill2 = true;
+                for (int index = 0; index < skillPictures2.Count; index++)
+                {
+                    skillPictures2[index].GameUpdate();
+                    if (skillPictureSpeed > 1)
+                    {
+                        skillPictures2[index].X += 20 - accelerationConounter;
+                        skillPictureSpeed = 0;
+                        if (accelerationConounter < 22)
+                        {
+                            accelerationConounter++;
+                        }
+                        else
+                        {
+                            accelerationConounter += 2;
+                        }
+                        //判断图片是否左移了，左移一段结束动画效果
+                        if (20 - accelerationConounter < 0 && skillPictures2[index].X <= 42)
+                        {
+                            MyPlane.isSkill2 = false;
+                            isStartGif = true;
+                            accelerationConounter = 0;
+                            return;
+                        }
+                    }
+                }
+            }
+            else if (isPlayGif && isPlaySkill2)
+            {
+                for (int index = 0; index < skillPictures2.Count; index++)
+                {
+                    skillPictures2[index].GameUpdate();
+                }
+            }
+
+        }
+        /// <summary>
+        /// 生成游戏技能图片以及背景动图的对象
+        /// </summary>
+        public static void CreateSikllPicture()
+        {
+            SkillPicture skillBackGround = new SkillPicture(0, 0);
+            skillPictures.Add(skillBackGround);
+
+            NotMoving skillPicture1 = new NotMoving(Resources.PlayerSkillPicture, -100, 40);
+            skillPictures1.Add(skillPicture1);
+
+            NotMoving skillPicture2 = new NotMoving(Resources.PlayerSkillPicture2, -200, 40);
+            skillPictures2.Add(skillPicture2);
         }
         /// <summary>
         /// 建立游戏背景的星星对象
@@ -137,8 +284,11 @@ namespace 自游飞机
         /// </summary>
         private static void EnPlaneUpdate()
         {
-            generationSpeed++;
-            if (generationSpeed >= 60)
+            if (!isPlayGif)
+            {
+                generationSpeed++;
+            }
+            if (generationSpeed >= 60 && !isPlayGif)
             {
                 CreatEnPlane();
                 generationSpeed = 0;
@@ -179,6 +329,39 @@ namespace 自游飞机
 
             }
            
+        }
+        /// <summary>
+        /// 创建以及销毁生命值读条的对象
+        /// </summary>
+        public static void HealthUpdate()
+        {
+            foreach (NotMoving lpf in lpfs)
+            {
+                lpf.GameUpdate();
+            }
+            foreach (MyPlane myPlane in myPlanes)
+            {
+                if (myPlane.HP > 0)
+                {
+                    for (int index = 0; index < lps.Count - (5 - myPlane.HP) * 6; index++)
+                    {
+                        lps[index].GameUpdate();
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// 创建生命值读条的对象
+        /// </summary>
+        public static void CreateHealth()
+        {
+            NotMoving lpf = new NotMoving(Resources.lpf, 42, 490);
+            lpfs.Add(lpf);
+            for (int count = 0; count < 30; count++)
+            {
+                NotMoving lp = new NotMoving(Resources.lp, 42+count * 6, 490);
+                lps.Add(lp);
+            }
         }
         /// <summary>
         /// 判断两个物体是否发生碰撞

@@ -211,4 +211,49 @@
   <data name="EXP5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EXP5.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lpf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lpf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Guard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Guard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayerSkillPicture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayerSkillPicture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skill0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skill0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skill1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skill1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skill2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skill2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skill3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skill3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skill4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skill4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skill5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skill5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skill6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skill6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skill7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skill7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skill8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skill8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Skill9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skill9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayerSkillPicture2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\56910167.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

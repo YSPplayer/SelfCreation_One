@@ -17,10 +17,10 @@ namespace 自游飞机
             this.Width = gameMap.Width;
             this.Height = gameMap.Height;
         }
-        public override void Update()
+        public override void GameUpdate()
         {
-            ImageObject.MakeTransparent(Color.Black);
-            base.Update();
+            ImageObject.MakeTransparent(Color.White);
+            base.GameUpdate();
         }
     }
 }

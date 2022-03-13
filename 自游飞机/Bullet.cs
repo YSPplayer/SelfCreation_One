@@ -29,9 +29,12 @@ namespace 自游飞机
         }
         public override void GameUpdate()
         {
-            ImageObject.MakeTransparent(Color.Black);
-            checkDestory();
-            Move();
+            if (!GameManage.isPlayGif)
+            {
+                ImageObject.MakeTransparent(Color.Black);
+                checkDestory();
+                Move();
+            }
             base.GameUpdate();
         }
         /// <summary>
