@@ -142,6 +142,10 @@
     <None Include="Resources\Skill8.png" />
     <None Include="Resources\Skill9.png" />
     <None Include="Resources\56910167.png" />
+    <None Include="Resources\Shell.png" />
+    <None Include="Resources\sp.png" />
+    <None Include="Resources\spf.png" />
+    <None Include="Resources\Boss1.png" />
     <Content Include="函数使用说明.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -63,6 +63,16 @@ namespace 自游飞机.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Boss1 {
+            get {
+                object obj = ResourceManager.GetObject("Boss1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap BulletDown {
             get {
                 object obj = ResourceManager.GetObject("BulletDown", resourceCulture);
@@ -363,6 +373,16 @@ namespace 自游飞机.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Shell {
+            get {
+                object obj = ResourceManager.GetObject("Shell", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Skill0 {
             get {
                 object obj = ResourceManager.GetObject("Skill0", resourceCulture);
@@ -456,6 +476,26 @@ namespace 自游飞机.Properties {
         internal static System.Drawing.Bitmap Skill9 {
             get {
                 object obj = ResourceManager.GetObject("Skill9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap sp {
+            get {
+                object obj = ResourceManager.GetObject("sp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap spf {
+            get {
+                object obj = ResourceManager.GetObject("spf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

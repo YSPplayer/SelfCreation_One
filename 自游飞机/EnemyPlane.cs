@@ -18,12 +18,17 @@ namespace 自游飞机
     {
         public int ShootSpeed { get; set;}
         public Enemytype Type { get; set;}
-        public EnemyPlane(Bitmap gameMap, int x, int y,int speed,int shootSpeed,int hp,Enemytype type)
+        //BOSS的随机移动速度
+        private Random ranBool = new Random();
+        //BOSS的随机移动速度帧数控制;
+        private int BossSeppd = 0;
+        public EnemyPlane(Bitmap gameMap, int x, int y,int speed,int shootSpeed,int hp,bool value,Enemytype type)
         {
             this.X = x;
             this.Y = y;
             this.Type = type;
             this.HP = hp;
+            this.Value = value;
             this.Speed = speed;
             this.ShootSpeed = shootSpeed;
             this.ImageObject = gameMap;
@@ -47,16 +52,52 @@ namespace 自游飞机
         /// </summary>
         private void Move()
         {
-            this.Y = this.Y + this.Speed;
+            if (this.Type != Enemytype.Boss)
+            {
+                this.Y = this.Y + this.Speed;
+            }
+            else
+            {
+                   BossSeppd++;               
+                    //防止超过边界
+                    if (X <= -80)
+                    {
+                        this.Speed = 3;
+                    }
+                    else if (X >= 200)
+                    {
+                        this.Speed = -3;
+                    }
+                    else
+                    {
+                      if (BossSeppd >= 60)
+                      {
+                         int res = ranBool.Next(0, 2);
+                         if (res == 0)
+                         {
+                             this.Speed = 3;
+                         }
+                         else
+                         {
+                             this.Speed = -3;
+                         }
+                         BossSeppd = 0;
+                      }
+                    }
+                this.X = this.X + this.Speed;
+            }
         }
         /// <summary>
         /// 检查敌人飞机是否需要被销毁的方法
         /// </summary>
         private void CheckDestory()
         {
-            if (X < 0 || X > 550 || Y < 0 || Y > 550)
+            if (this.Type != Enemytype.Boss)
             {
-                this.isDestroy = true; return;
+                if (X < 0 || X > 550 || Y < 0 || Y > 550)
+                {
+                    this.isDestroy = true; return;
+                }
             }
         }
         /// <summary>

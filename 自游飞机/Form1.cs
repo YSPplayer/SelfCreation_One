@@ -34,18 +34,20 @@ namespace 自游飞机
         private void GameInThread()
         {
               int sleepTime = 1000 / 60;
-            //Bitmap tempBmp = new Bitmap(550, 550);
+             //Bitmap tempBmp = new Bitmap(550, 550);
             //Graphics tempG = Graphics.FromImage(tempBmp);
             //bitmap.MakeTransparent(Color.White);
             //bitmap.MakeTransparent(Color.Black);
-            //Bitmap bitmap = Resources.PlayerSkillPicture2;
-             GameFramkWork.Start();
+            //Bitmap bitmap = Resources.Boss1;
+            //Bitmap bitmap2 = Resources.MyPlane;
+            GameFramkWork.Start();
               while (true)
               {
-                //tempG.Clear(Color.Black);
-               // tempG.DrawImage(bitmap, 0, 0);
-               //WindowG.DrawImage(tempBmp, 0, 0);
-               //WindowG.DrawImage(bitmap2, 0, 0);
+                 //tempG.Clear(Color.Black);
+                //tempG.DrawImage(bitmap, 0, 0);
+                //WindowG.DrawImage(bitmap, 0, 0);
+                //WindowG.DrawImage(bitmap2, 100, 0);
+                //WindowG.DrawImage(bitmap2, 0, 0);
                 GameFramkWork.Update();
                 Thread.Sleep(sleepTime);
               }

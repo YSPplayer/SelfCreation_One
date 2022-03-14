@@ -20,7 +20,7 @@ namespace 自游飞机
         //创建生成星星的集合
         private static List<Star> stars = new List<Star>();
         //创建玩家飞机的集合
-        private static List<MyPlane> myPlanes = new List<MyPlane>();
+        public static List<MyPlane> myPlanes = new List<MyPlane>();
         //创建玩家飞机的子弹集合
         public static List<Bullet> playerBullets = new List<Bullet>();
 
@@ -38,10 +38,22 @@ namespace 自游飞机
         public static List<NotMoving> lpfs = new List<NotMoving>();
         public static List<NotMoving> lps = new List<NotMoving>();
 
+        //创建技能值的集合
+        public static List<NotMoving> spfs = new List<NotMoving>();
+        public static List<NotMoving> sps = new List<NotMoving>();
+
         //创建技能图片的集合
         public static List<NotMoving> skillPictures1 = new List<NotMoving>();
         public static List<NotMoving> skillPictures2= new List<NotMoving>();
 
+        //创建技能实物的集合
+        public static List<NotMoving> covers = new List<NotMoving>();
+
+        //创建BOSS的集合
+        public static List<EnemyPlane> Bosses = new List<EnemyPlane>();
+
+        //计算当前技能框的大小
+        public static int skillValue = 0;
         //控制飞机生成的速度
         private static int generationSpeed;
         
@@ -66,12 +78,15 @@ namespace 自游飞机
                //最后绘制的图片的图层在最上面
                 SkillPictureUpdate();
                 GameBackgroundUpdate();
-                MyPlaneUpdate();
-                EnPlaneUpdate();
                 PlayerBulletUpdate();
                 EnemyBulletUpdate();
+                MyPlaneUpdate();
+                CoverUpdate();
+               // EnPlaneUpdate();
+                BossUpdate();
                 ExplosivesUpdate();
                 HealthUpdate();
+                SkillBarUpdate();
                 SkillPicture1Update();
                 SkillPicture2Update();
         }
@@ -92,6 +107,19 @@ namespace 自游飞机
                 else
                 {
                     playerBullets.Remove(playerBullets[index]);
+                }
+            }
+        }
+        /// <summary>
+        /// 生成玩家防护罩的方法
+        /// </summary>
+        private static void CoverUpdate()
+        {
+            if (myPlanes[0].killStart1 && !isPlayGif)
+            {
+                for (int index = 0; index < covers.Count; index++)
+                {
+                    covers[index].GameUpdate();
                 }
             }
         }
@@ -153,6 +181,7 @@ namespace 自游飞机
                 skillPictureSpeed++;
                 isPlayGif = true;
                 isPlaySkill1 = true;
+                myPlanes[0].killStart1 = true;
                 for (int index = 0; index < skillPictures1.Count; index++)
                 {
                     skillPictures1[index].GameUpdate();
@@ -199,6 +228,7 @@ namespace 自游飞机
                 skillPictureSpeed++;
                 isPlayGif = true;
                 isPlaySkill2 = true;
+                myPlanes[0].killStart2 = true;
                 for (int index = 0; index < skillPictures2.Count; index++)
                 {
                     skillPictures2[index].GameUpdate();
@@ -235,7 +265,7 @@ namespace 自游飞机
 
         }
         /// <summary>
-        /// 生成游戏技能图片以及背景动图的对象
+        /// 生成游戏技能图片以及背景动图以及技能的对象
         /// </summary>
         public static void CreateSikllPicture()
         {
@@ -247,6 +277,8 @@ namespace 自游飞机
 
             NotMoving skillPicture2 = new NotMoving(Resources.PlayerSkillPicture2, -200, 40);
             skillPictures2.Add(skillPicture2);
+            NotMoving cover = new NotMoving(Resources.Guard, 0, 0);
+            covers.Add(cover);
         }
         /// <summary>
         /// 建立游戏背景的星星对象
@@ -306,6 +338,28 @@ namespace 自游飞机
             }
         }
         /// <summary>
+        /// 生成以及销毁BOSS
+        /// </summary>
+         private static void BossUpdate()
+        {
+            for (int index = 0; index<Bosses.Count; index++)
+            {
+                if (!Bosses[index].isDestroy)
+                {
+                    Bosses[index].GameUpdate();
+                }
+            }
+        }
+        /// <summary>
+        /// 创建敌人BOSS对象
+        /// </summary>
+        public static void CreatBoss()
+        {
+            EnemyPlane Boss1 = new EnemyPlane(Resources.Boss1, -15, -35, 2, 2, 50, false, Enemytype.Boss);
+            //X=-80-200
+            Bosses.Add(Boss1);
+        }
+        /// <summary>
         /// 创建敌人飞机的对象
         /// </summary>
         private static void CreatEnPlane()
@@ -315,15 +369,15 @@ namespace 自游飞机
             switch (index)
             {
                 case 0:
-                    EnemyPlane plane1 = new EnemyPlane(Resources.EnemyPlane1, ranX,0,2,1,4,Enemytype.Enemy1);
+                    EnemyPlane plane1 = new EnemyPlane(Resources.EnemyPlane1, ranX,0,2,1,4,false,Enemytype.Enemy1);
                     enPlanes.Add(plane1);
                     break;
                 case 1:
-                    EnemyPlane plane2 = new EnemyPlane(Resources.EnemyPlane2, ranX, 0, 4,2,3,Enemytype.Enemy2);
+                    EnemyPlane plane2 = new EnemyPlane(Resources.EnemyPlane2, ranX, 0, 4,2,3, false, Enemytype.Enemy2);
                     enPlanes.Add(plane2);
                     break;
                 case 2:
-                    EnemyPlane plane3 = new EnemyPlane(Resources.EnemyPlane3, ranX, 0, 6,2,2,Enemytype.Enemy3);
+                    EnemyPlane plane3 = new EnemyPlane(Resources.EnemyPlane3, ranX, 0, 6,2,2, false, Enemytype.Enemy3);
                     enPlanes.Add(plane3);
                     break;
 
@@ -361,6 +415,53 @@ namespace 自游飞机
             {
                 NotMoving lp = new NotMoving(Resources.lp, 42+count * 6, 490);
                 lps.Add(lp);
+            }
+        }
+        /// <summary>
+        /// 创建以及销毁技能值读条的对象
+        /// </summary>
+        public static void SkillBarUpdate()
+        {
+            foreach (NotMoving spf in spfs)
+            {
+                spf.GameUpdate();
+            }
+            foreach (EnemyPlane enPlane in enPlanes)
+            {
+                if (enPlane.Value)//2 3 6 *6 30
+                {
+                    switch (enPlane.Type)
+                    {
+                        case Enemytype.Enemy1:
+                            skillValue += 2;
+                            break;
+                        case Enemytype.Enemy2:
+                            skillValue += 3;
+                            break;
+                        case Enemytype.Enemy3:
+                            skillValue += 4;
+                            break;
+
+                    }
+                }
+            }
+            if (skillValue > 30) skillValue = 30;
+            for (int index = 0; index < skillValue; index++)
+            {
+                sps[index].GameUpdate();
+            }
+        }
+        /// <summary>
+        /// 创建技能值读条的对象
+        /// </summary>
+        public static void CreateSkillBar()
+        {
+            NotMoving spf = new NotMoving(Resources.spf, 42, 470);
+            spfs.Add(spf);
+            for (int count = 0; count < 30; count++)// 30*6
+            {
+                NotMoving sp = new NotMoving(Resources.sp, 42 + count * 6, 470);
+                sps.Add(sp);
             }
         }
         /// <summary>

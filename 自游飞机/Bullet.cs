@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace 自游飞机
 {   enum Flag
     {
         player,
         enemy,
+        playerShell,
     }
     /// <summary>
     /// 管理飞机子弹的类
@@ -45,7 +47,8 @@ namespace 自游飞机
             switch (Flag)
             {
                 case Flag.player:
-                     Y = Y - Speed;
+                case Flag.playerShell:
+                    Y = Y - Speed;
                 break;
                 case Flag.enemy:
                     Y = Y + Speed;
@@ -67,7 +70,7 @@ namespace 自游飞机
                 case Flag.player:
                     if (GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)) != null)
                     {
-                        GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)).HP --;
+                        GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)).HP--;
                         Explosive explosive = new Explosive(X + 9, Y + 9);
                         GameManage.explosives.Add(explosive);
                         this.isDestroy = true;
@@ -76,7 +79,19 @@ namespace 自游飞机
                 case Flag.enemy:
                     if (GameManage.IsCollidePlayer(GetRectangle(X + 9, Y + 9, 4, 4)) != null)
                     {
-                        GameManage.IsCollidePlayer(GetRectangle(X + 9, Y + 9, 4, 4)).HP --;
+                        if (!GameManage.myPlanes[0].killStart1)
+                        {
+                            GameManage.IsCollidePlayer(GetRectangle(X + 9, Y + 9, 4, 4)).HP--;
+                        }
+                        Explosive explosive = new Explosive(X + 9, Y + 9);
+                        GameManage.explosives.Add(explosive);
+                        this.isDestroy = true;
+                    }
+                    break;
+                case Flag.playerShell:
+                    if (GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)) != null)
+                    {
+                        GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)).HP-=5;
                         Explosive explosive = new Explosive(X + 9, Y + 9);
                         GameManage.explosives.Add(explosive);
                         this.isDestroy = true;

@@ -11,6 +11,7 @@ namespace 自游飞机
     {
         public int Speed { get; set; }
         public int HP { get; set; }
+        public bool Value { get; set; }
         public bool isDestroy;
 
         /// <summary>
@@ -38,6 +39,7 @@ namespace 自游飞机
         {
             if (this.HP <= 0)
             {
+                this.Value = true;
                 this.isDestroy = true;
             }
         }

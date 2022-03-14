@@ -142,7 +142,9 @@ namespace 自游飞机
             GameManage.DrawStars();
             GameManage.CreatMyPlane();
             GameManage.CreateHealth();
+            GameManage.CreateSkillBar();
             GameManage.CreateSikllPicture();
+            GameManage.CreatBoss();
         }
         /// <summary>
         /// 向集合内添加菜单按钮

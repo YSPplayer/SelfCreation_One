@@ -34,6 +34,12 @@ namespace 自游飞机
         //检查玩家是否发动技能
         public static bool isSkill1;
         public static bool isSkill2;
+        //检查玩家发动技能后产生的实际效果
+        public bool killStart1;
+        public bool killStart2;
+        //1技能实物的生效时间
+        public static int killStart1Speed=0;
+        public static int killStart2Count = 0;
         public MyPlane(Bitmap gameMap, int x, int y)
         {
             this.X = x;
@@ -49,12 +55,12 @@ namespace 自游飞机
             ImageObject.MakeTransparent(Color.White);
             if (!GameManage.isPlayGif)
             {
+                StartSkill();
                 CollisionCheck();
                 DestructiveCollisionCheck();
                 Destory();
                 Move();
                 ShootBullet();
-                StartSkill();
             }
             base.GameUpdate();
         }
@@ -66,7 +72,10 @@ namespace 自游飞机
             if (GameManage.IsCollideEnemy(GetRectangle(X,Y+5, ImageObject.Width, ImageObject.Height)) != null)
             {
                 GameManage.IsCollideEnemy(GetRectangle(X, Y + 5, ImageObject.Width, ImageObject.Height)).isDestroy = true;
-                HP--;
+                if (!killStart1)
+                {
+                    HP--;
+                }
                 Explosive explosive = new Explosive(X, Y + 5);
                 GameManage.explosives.Add(explosive);
             }
@@ -176,20 +185,42 @@ namespace 自游飞机
         {
             if (isAttack)
             {
-                Bullet bullet = new Bullet(Resources.BulletUp, X + ImageObject.Width/2-8, Y-4, 4, Flag.player);
-                GameManage.playerBullets.Add(bullet);
+                if (!killStart2)
+                {
+                    Bullet bullet = new Bullet(Resources.BulletUp, X + ImageObject.Width / 2 - 8, Y - 4, 4, Flag.player);
+                    GameManage.playerBullets.Add(bullet);
+                }
+                else
+                {
+                    Bullet shell = new Bullet(Resources.Shell, X + ImageObject.Width / 2 - 8, Y +20, 2, Flag.playerShell);
+                    GameManage.playerBullets.Add(shell);
+                    killStart2Count++;
+                    if (killStart2Count >= 5)
+                    {
+                        killStart2 = false;
+                        killStart2Count = 0;
+                    }
+                }
                 //在这里设置false，它就只会发射1个子弹了
                 isAttack = false;
             }
         }
         /// <summary>
-        /// 飞机发动技能时调用，向集合中增加技能对象
+        /// 飞机发动技能时调用，更改集合中防护罩的位置，和飞机同级
         /// </summary>
         private void StartSkill()
         {
-            if (isSkill1)
-            {              
-                //isSkill1 = false;
+            //后面是规范技能1的防护罩的移动
+            if (killStart1)
+            {
+                killStart1Speed++;
+                GameManage.covers[0].X = X;
+                GameManage.covers[0].Y = Y-10;
+                if (killStart1Speed >= 250)
+                {
+                    killStart1 = false;
+                    killStart1Speed = 0;
+                }
             }
         }
         /// <summary>
@@ -221,10 +252,18 @@ namespace 自游飞机
                     isAttack =true;
                     break;
                 case Keys.G:
-                    isSkill1 = true;
+                    if (GameManage.skillValue >= 30)
+                    {
+                        isSkill1 = true;
+                        GameManage.skillValue = 0;
+                    }
                     break;
                 case Keys.H:
-                    isSkill2 = true;
+                    if (GameManage.skillValue >= 30)
+                    {
+                        isSkill2 = true;
+                        GameManage.skillValue = 0;
+                    }
                     break;
 
             }

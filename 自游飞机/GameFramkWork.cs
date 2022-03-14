@@ -53,6 +53,7 @@ namespace 自游飞机
                 WindowObject.tempG.Clear(Color.Black);
                 GameManage.Update();
                 //绘制HP条的字符
+                WindowObject.tempG.DrawString("SP:", new Font("隶书", 10), new SolidBrush(Color.Blue), new Point(0, 465));
                 WindowObject.tempG.DrawString("HP:", new Font("隶书", 10), new SolidBrush(Color.Red), new Point(0, 484));
                 Form1.WindowG.DrawImage(WindowObject.tempBmp, 0, 0);
               
