@@ -45,6 +45,7 @@ namespace 自游飞机
         //创建技能图片的集合
         public static List<NotMoving> skillPictures1 = new List<NotMoving>();
         public static List<NotMoving> skillPictures2= new List<NotMoving>();
+        public static List<NotMoving> skillBossPictures = new List<NotMoving>();
 
         //创建技能实物的集合
         public static List<NotMoving> covers = new List<NotMoving>();
@@ -52,6 +53,8 @@ namespace 自游飞机
         //创建BOSS的集合
         public static List<EnemyPlane> Bosses = new List<EnemyPlane>();
 
+        //创建BOSS技能的实物集合
+        public static List<Explosive> bossExplosives = new List<Explosive>();
         //计算当前技能框的大小
         public static int skillValue = 0;
         //控制飞机生成的速度
@@ -61,11 +64,15 @@ namespace 自游飞机
         private static int skillPictureSpeed=0;
         //控制技能图片生成的加速度
         private static int accelerationConounter = 0;
-
+        //敌人飞机生成的数量
+        private static int GeneratedCount = 0;
+        //当前的难度判断
+        private static int Lv = 0;
         //播放技能图片的时机
         public static bool isPlayGif;
         public static bool isPlaySkill1;
         public static bool isPlaySkill2;
+        public static bool isBossSkill;
         //播放动图的时机检查
         public static bool isStartGif;
 
@@ -82,13 +89,14 @@ namespace 自游飞机
                 EnemyBulletUpdate();
                 MyPlaneUpdate();
                 CoverUpdate();
-               // EnPlaneUpdate();
-                BossUpdate();
+                EnPlaneUpdate();
                 ExplosivesUpdate();
+                BossExplosivesUpdate();
                 HealthUpdate();
                 SkillBarUpdate();
                 SkillPicture1Update();
                 SkillPicture2Update();
+                SkillBossPictureUpdate();
         }
 
 
@@ -154,6 +162,24 @@ namespace 自游飞机
                 else
                 {
                     explosives.Remove(explosives[index]);
+                }
+            }
+        }
+        /// <summary>
+        /// 生成以及BOSS技能销毁爆炸特效
+        /// </summary>
+        private static void BossExplosivesUpdate()
+        {
+            for (int index = 0; index < bossExplosives.Count; index++)
+            {
+                if (!bossExplosives[index].isDestroy)
+                {
+                    bossExplosives[index].skillDamge();
+                    bossExplosives[index].GameUpdate();
+                }
+                else
+                {
+                    bossExplosives.Remove(bossExplosives[index]);
                 }
             }
         }
@@ -265,6 +291,53 @@ namespace 自游飞机
 
         }
         /// <summary>
+        /// 生成技能图片BOSS特效
+        /// </summary>
+        private static void SkillBossPictureUpdate()
+        {
+
+            if (EnemyPlane.isSkill)
+            {
+                skillPictureSpeed++;
+                isPlayGif = true;
+                isBossSkill = true;
+                Bosses[0].killStart = true;
+                for (int index = 0; index < skillBossPictures.Count; index++)
+                {
+                    skillBossPictures[index].GameUpdate();
+                    if (skillPictureSpeed > 1)
+                    {
+                        skillBossPictures[index].X += 20 - accelerationConounter;
+                        skillPictureSpeed = 0;
+                        if (accelerationConounter < 22)
+                        {
+                            accelerationConounter++;
+                        }
+                        else
+                        {
+                            accelerationConounter += 2;
+                        }
+                        //判断图片是否左移了，左移一段结束动画效果
+                        if (20 - accelerationConounter < 0 && skillBossPictures[index].X <= 42)
+                        {
+                            EnemyPlane.isSkill = false;
+                            isStartGif = true;
+                            accelerationConounter = 0;
+                            return;
+                        }
+                    }
+                }
+            }
+            else if (isPlayGif && isBossSkill)
+            {
+                for (int index = 0; index < skillBossPictures.Count; index++)
+                {
+                    skillBossPictures[index].GameUpdate();
+                }
+            }
+
+        }
+        /// <summary>
         /// 生成游戏技能图片以及背景动图以及技能的对象
         /// </summary>
         public static void CreateSikllPicture()
@@ -277,6 +350,10 @@ namespace 自游飞机
 
             NotMoving skillPicture2 = new NotMoving(Resources.PlayerSkillPicture2, -200, 40);
             skillPictures2.Add(skillPicture2);
+
+            NotMoving skillBossPicture = new NotMoving(Resources.BossSkillPicture, -50, 40);
+            skillBossPictures.Add(skillBossPicture);
+            //防护罩
             NotMoving cover = new NotMoving(Resources.Guard, 0, 0);
             covers.Add(cover);
         }
@@ -316,14 +393,30 @@ namespace 自游飞机
         /// </summary>
         private static void EnPlaneUpdate()
         {
-            if (!isPlayGif)
+            if (!isPlayGif && Grade(GeneratedCount) < 3)
             {
                 generationSpeed++;
             }
-            if (generationSpeed >= 60 && !isPlayGif)
+
+            if (Grade(GeneratedCount) < 1)
             {
-                CreatEnPlane();
-                generationSpeed = 0;
+                if (generationSpeed >= 60 && !isPlayGif)
+                {
+                    CreatEnPlane();
+                    generationSpeed = 0;
+                }
+            }
+            else if (Grade(GeneratedCount) >= 1 && Grade(GeneratedCount) < 3)
+            {
+                if (generationSpeed >= 30 && !isPlayGif)
+                {
+                    CreatEnPlane();
+                    generationSpeed = 0;
+                }
+            }
+            else
+            {
+                BossUpdate();
             }
             for (int index = 0; index < enPlanes.Count; index++)
             {
@@ -341,21 +434,22 @@ namespace 自游飞机
         /// 生成以及销毁BOSS
         /// </summary>
          private static void BossUpdate()
-        {
+         {
             for (int index = 0; index<Bosses.Count; index++)
             {
                 if (!Bosses[index].isDestroy)
                 {
                     Bosses[index].GameUpdate();
                 }
+                   
             }
-        }
+         }
         /// <summary>
         /// 创建敌人BOSS对象
         /// </summary>
         public static void CreatBoss()
         {
-            EnemyPlane Boss1 = new EnemyPlane(Resources.Boss1, -15, -35, 2, 2, 50, false, Enemytype.Boss);
+            EnemyPlane Boss1 = new EnemyPlane(Resources.Boss1, -15, -35, 2, 2, 200, false, Enemytype.Boss);
             //X=-80-200
             Bosses.Add(Boss1);
         }
@@ -366,23 +460,74 @@ namespace 自游飞机
         {
             int ranX = ranObject.Next(0, 451);
             int index = ranObject.Next(0, 3);
-            switch (index)
+            if (Grade(GeneratedCount) <= 1)
             {
-                case 0:
-                    EnemyPlane plane1 = new EnemyPlane(Resources.EnemyPlane1, ranX,0,2,1,4,false,Enemytype.Enemy1);
-                    enPlanes.Add(plane1);
-                    break;
-                case 1:
-                    EnemyPlane plane2 = new EnemyPlane(Resources.EnemyPlane2, ranX, 0, 4,2,3, false, Enemytype.Enemy2);
-                    enPlanes.Add(plane2);
-                    break;
-                case 2:
-                    EnemyPlane plane3 = new EnemyPlane(Resources.EnemyPlane3, ranX, 0, 6,2,2, false, Enemytype.Enemy3);
-                    enPlanes.Add(plane3);
-                    break;
+                switch (index)
+                {
+                    case 0:
+                        EnemyPlane plane1 = new EnemyPlane(Resources.EnemyPlane1, ranX, 0, 2, 1, 4, false, Enemytype.Enemy1);
+                        enPlanes.Add(plane1);
+                        GeneratedCount++;
+                        break;
+                    case 1:
+                        EnemyPlane plane2 = new EnemyPlane(Resources.EnemyPlane2, ranX, 0, 4, 2, 3, false, Enemytype.Enemy2);
+                        enPlanes.Add(plane2);
+                        GeneratedCount++;
+                        break;
+                    case 2:
+                        EnemyPlane plane3 = new EnemyPlane(Resources.EnemyPlane3, ranX, 0, 6, 2, 2, false, Enemytype.Enemy3);
+                        enPlanes.Add(plane3);
+                        GeneratedCount++;
+                        break;
 
+                }
+            }
+            else if (Grade(GeneratedCount) == 2)
+            {
+                switch (index)
+                {
+                    case 0:
+                        EnemyPlane plane1 = new EnemyPlane(Resources.EnemyPlane1, ranX, 0, 3, 1, 4, false, Enemytype.Enemy1);
+                        enPlanes.Add(plane1);
+                        GeneratedCount++;
+                        break;
+                    case 1:
+                        EnemyPlane plane2 = new EnemyPlane(Resources.EnemyPlane2, ranX, 0, 5, 2, 3, false, Enemytype.Enemy2);
+                        enPlanes.Add(plane2);
+                        GeneratedCount++;
+                        break;
+                    case 2:
+                        EnemyPlane plane3 = new EnemyPlane(Resources.EnemyPlane3, ranX, 0, 7, 2, 2, false, Enemytype.Enemy3);
+                        enPlanes.Add(plane3);
+                        GeneratedCount++;
+                        break;
+
+                }
+            }
+            else
+            {
+                return;
             }
            
+        }
+        /// <summary>
+        /// 根据当前敌人飞机生成的数量判断游戏的难度等级
+        /// </summary>
+        /// <param name="generatedCount"></param>
+        /// <returns></returns>
+        private static int Grade(int generatedCount)
+        {
+            switch (generatedCount)
+            {
+                case 15:
+                    return Lv = 1;
+                case 45:
+                    return Lv = 2;
+                case 55:
+                    return Lv = 3;
+                default:
+                    return Lv = 0;
+            }
         }
         /// <summary>
         /// 创建以及销毁生命值读条的对象
@@ -441,6 +586,9 @@ namespace 自游飞机
                         case Enemytype.Enemy3:
                             skillValue += 4;
                             break;
+                        case Enemytype.Boss:
+                            skillValue += 30;
+                            break;
 
                     }
                 }
@@ -469,13 +617,23 @@ namespace 自游飞机
         /// </summary>
         /// <param name="rt"></param>
         /// <returns></returns>
-        public static Movthing IsCollideEnemy(Rectangle rt)
+        public static EnemyPlane IsCollideEnemy(Rectangle rt)
         {
-            foreach (Movthing enPlane in enPlanes)
+            foreach (EnemyPlane enPlane in enPlanes)
             {
                 if (enPlane.GetRectangle(enPlane.X, enPlane.Y, enPlane.Width, enPlane.Height).IntersectsWith(rt))
                 {
                     return enPlane;
+                }
+            }
+            if (Lv > 2)
+            {
+                foreach (EnemyPlane Boss in Bosses)
+                {
+                    if (Boss.GetRectangle(Boss.X + 105, Boss.Y + 40, Boss.X + 395, Boss.Y + 340).IntersectsWith(rt))
+                    {
+                        return Boss;
+                    }
                 }
             }
             return null;

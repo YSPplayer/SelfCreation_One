@@ -61,11 +61,40 @@ namespace 自游飞机.Properties {
         }
         
         /// <summary>
+        ///   查找类似于 System.IO.MemoryStream 的 System.IO.UnmanagedMemoryStream 类型的本地化资源。
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Blast {
+            get {
+                return ResourceManager.GetStream("Blast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap Boss1 {
             get {
                 object obj = ResourceManager.GetObject("Boss1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap BossLpf {
+            get {
+                object obj = ResourceManager.GetObject("BossLpf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap BossSkillPicture {
+            get {
+                object obj = ResourceManager.GetObject("BossSkillPicture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -381,6 +410,24 @@ namespace 自游飞机.Properties {
         }
         
         /// <summary>
+        ///   查找类似于 System.IO.MemoryStream 的 System.IO.UnmanagedMemoryStream 类型的本地化资源。
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Shell_1 {
+            get {
+                return ResourceManager.GetStream("Shell_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 System.IO.MemoryStream 的 System.IO.UnmanagedMemoryStream 类型的本地化资源。
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Shoot {
+            get {
+                return ResourceManager.GetStream("Shoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap Skill0 {
@@ -401,12 +448,30 @@ namespace 自游飞机.Properties {
         }
         
         /// <summary>
+        ///   查找类似于 System.IO.MemoryStream 的 System.IO.UnmanagedMemoryStream 类型的本地化资源。
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Skill1_1 {
+            get {
+                return ResourceManager.GetStream("Skill1_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap Skill2 {
             get {
                 object obj = ResourceManager.GetObject("Skill2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 System.IO.MemoryStream 的 System.IO.UnmanagedMemoryStream 类型的本地化资源。
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Skill2_1 {
+            get {
+                return ResourceManager.GetStream("Skill2_1", resourceCulture);
             }
         }
         

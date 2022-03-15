@@ -189,11 +189,13 @@ namespace 自游飞机
                 {
                     Bullet bullet = new Bullet(Resources.BulletUp, X + ImageObject.Width / 2 - 8, Y - 4, 4, Flag.player);
                     GameManage.playerBullets.Add(bullet);
+                    SoundManger.PlayShoot();
                 }
                 else
                 {
                     Bullet shell = new Bullet(Resources.Shell, X + ImageObject.Width / 2 - 8, Y +20, 2, Flag.playerShell);
                     GameManage.playerBullets.Add(shell);
+                    SoundManger.PlayShell();
                     killStart2Count++;
                     if (killStart2Count >= 5)
                     {
@@ -252,15 +254,17 @@ namespace 自游飞机
                     isAttack =true;
                     break;
                 case Keys.G:
-                    if (GameManage.skillValue >= 30)
+                    if (GameManage.skillValue >= 0 && !GameManage.isBossSkill) 
                     {
+                        SoundManger.PlaySkill_1();
                         isSkill1 = true;
                         GameManage.skillValue = 0;
                     }
                     break;
                 case Keys.H:
-                    if (GameManage.skillValue >= 30)
+                    if (GameManage.skillValue >= 0 && !GameManage.isBossSkill)
                     {
+                        SoundManger.PlaySkill_2();
                         isSkill2 = true;
                         GameManage.skillValue = 0;
                     }

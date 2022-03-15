@@ -71,6 +71,11 @@ namespace 自游飞机
                     if (GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)) != null)
                     {
                         GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)).HP--;
+                        if (GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)).Type == Enemytype.Boss)
+                        {
+                            GameManage.skillValue += 1;
+                            if (GameManage.skillValue > 30) GameManage.skillValue = 30;
+                        }
                         Explosive explosive = new Explosive(X + 9, Y + 9);
                         GameManage.explosives.Add(explosive);
                         this.isDestroy = true;
@@ -92,6 +97,11 @@ namespace 自游飞机
                     if (GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)) != null)
                     {
                         GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)).HP-=5;
+                        if (GameManage.IsCollideEnemy(GetRectangle(X + 9, Y + 9, 4, 4)).Type == Enemytype.Boss)
+                        {
+                            GameManage.skillValue += 2;
+                            if (GameManage.skillValue > 30) GameManage.skillValue = 30;
+                        }
                         Explosive explosive = new Explosive(X + 9, Y + 9);
                         GameManage.explosives.Add(explosive);
                         this.isDestroy = true;

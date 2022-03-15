@@ -16,6 +16,7 @@ namespace 自游飞机
     {
         public static void Start()
         {
+            SoundManger.InitSound();
             KeyManage.CreateMenu();
         }
         public static void Update()

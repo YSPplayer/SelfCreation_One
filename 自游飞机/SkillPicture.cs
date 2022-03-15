@@ -60,8 +60,10 @@ namespace 自游飞机
                 GameManage.isStartGif = false;
                 GameManage.isPlaySkill1 = false;
                 GameManage.isPlaySkill2 = false;
+                GameManage.isBossSkill = false;
                 GameManage.skillPictures1[0].X = -100;
                 GameManage.skillPictures2[0].X = -200;
+                GameManage.skillBossPictures[0].X = -50;
             }
             if (speed >= 40)
             {

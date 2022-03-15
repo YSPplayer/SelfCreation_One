@@ -61,6 +61,7 @@
     <Compile Include="KeyManage.cs" />
     <Compile Include="KeyObject.cs" />
     <Compile Include="SkillPicture.cs" />
+    <Compile Include="SoundManger.cs" />
     <Compile Include="Star.cs" />
     <Compile Include="MyPlane.cs" />
     <Compile Include="NotMoving.cs" />
@@ -146,6 +147,15 @@
     <None Include="Resources\sp.png" />
     <None Include="Resources\spf.png" />
     <None Include="Resources\Boss1.png" />
+    <None Include="Resources\BossSkillPicture.png" />
+    <None Include="Resources\BossLpf.png" />
+    <None Include="Resources\Blast.wav" />
+    <None Include="Resources\Shoot.wav" />
+    <None Include="Resources\Skill2.wav" />
+    <None Include="Resources\Skill2.mp3" />
+    <None Include="Resources\Skill1_1.wav" />
+    <None Include="Resources\Skill2_1.wav" />
+    <None Include="Resources\Shell_1.wav" />
     <Content Include="函数使用说明.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

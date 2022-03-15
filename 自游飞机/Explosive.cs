@@ -29,6 +29,19 @@ namespace 自游飞机
             this.Y = y;
         }
         /// <summary>
+        /// BOSS技能的伤害检查
+        /// </summary>
+        public void skillDamge()
+        {
+            if (GameManage.IsCollidePlayer(GetRectangle(X + 4, Y + 8, 26, 26)) != null)
+            {
+                if (!GameManage.myPlanes[0].killStart1)
+                {
+                    GameManage.IsCollidePlayer(GetRectangle(X + 4, Y + 8, 26, 26)).HP--;
+                }
+            }
+        }
+        /// <summary>
         /// 返回特效的对应索引图片
         /// </summary>
         /// <param name="index"></param>
