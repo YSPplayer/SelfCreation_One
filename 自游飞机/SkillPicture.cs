@@ -5,7 +5,7 @@ using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
 using 自游飞机.Properties;
-
+using System.Windows.Forms;
 namespace 自游飞机
 {
     /// <summary>
@@ -15,6 +15,7 @@ namespace 自游飞机
     {
         private double speed = -0.5;
         private static int index = 0;
+        private static  int waitSpeed = 0;
         private static Bitmap[] bitmaps = new Bitmap[]
         {
             Resources.Skill0,
@@ -55,15 +56,28 @@ namespace 自游飞机
             if (index > 9)
             {
                 index = 0;
-                //重置资源
-                GameManage.isPlayGif = false;
-                GameManage.isStartGif = false;
-                GameManage.isPlaySkill1 = false;
-                GameManage.isPlaySkill2 = false;
-                GameManage.isBossSkill = false;
-                GameManage.skillPictures1[0].X = -100;
-                GameManage.skillPictures2[0].X = -200;
-                GameManage.skillBossPictures[0].X = -50;
+                if (GameManage.isForSkill)
+                {
+                    while (waitSpeed < 100)
+                    {
+
+                        waitSpeed++;
+                    }
+                    GameManage.isForSkill = false;
+                }
+                else
+                {
+                    //重置资源
+                    GameManage.isPlayGif = false;
+                    GameManage.isStartGif = false;
+                    GameManage.isPlaySkill1 = false;
+                    GameManage.isPlaySkill2 = false;
+                    GameManage.isBossSkill = false;
+                    waitSpeed = 0;
+                    GameManage.skillPictures1[0].X = -100;
+                    GameManage.skillPictures2[0].X = -200;
+                    GameManage.skillBossPictures[0].X = -50;
+                }
             }
             if (speed >= 40)
             {

@@ -254,7 +254,7 @@ namespace 自游飞机
                     isAttack =true;
                     break;
                 case Keys.G:
-                    if (GameManage.skillValue >= 0 && !GameManage.isBossSkill) 
+                    if (GameManage.skillValue >= 30 && !GameManage.isBossSkill) 
                     {
                         SoundManger.PlaySkill_1();
                         isSkill1 = true;
@@ -262,7 +262,7 @@ namespace 自游飞机
                     }
                     break;
                 case Keys.H:
-                    if (GameManage.skillValue >= 0 && !GameManage.isBossSkill)
+                    if (GameManage.skillValue >= 30 && !GameManage.isBossSkill)
                     {
                         SoundManger.PlaySkill_2();
                         isSkill2 = true;

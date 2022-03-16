@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using 自游飞机.Properties;
+using System.Threading;
 
 namespace 自游飞机
 {
@@ -73,6 +74,8 @@ namespace 自游飞机
         public static bool isPlaySkill1;
         public static bool isPlaySkill2;
         public static bool isBossSkill;
+
+        public static bool isForSkill;
         //播放动图的时机检查
         public static bool isStartGif;
 
@@ -233,6 +236,7 @@ namespace 自游飞机
                         }
                     }
                 }
+                isForSkill = true;
             }
             else if (isPlayGif && isPlaySkill1)
             {
@@ -270,7 +274,6 @@ namespace 自游飞机
                         {
                             accelerationConounter += 2;
                         }
-                        //判断图片是否左移了，左移一段结束动画效果
                         if (20 - accelerationConounter < 0 && skillPictures2[index].X <= 42)
                         {
                             MyPlane.isSkill2 = false;
@@ -519,11 +522,11 @@ namespace 自游飞机
         {
             switch (generatedCount)
             {
-                case 15:
+                case 15://15
                     return Lv = 1;
-                case 45:
+                case 45://45
                     return Lv = 2;
-                case 55:
+                case 55://55
                     return Lv = 3;
                 default:
                     return Lv = 0;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Threading;
 
 namespace 自游飞机
 {
@@ -39,6 +40,7 @@ namespace 自游飞机
         {
             if (this.HP <= 0)
             {
+               // SoundManger.PlayBlast();
                 this.Value = true;
                 this.isDestroy = true;
             }

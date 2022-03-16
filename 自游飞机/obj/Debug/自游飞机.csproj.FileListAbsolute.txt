@@ -18,3 +18,6 @@ E:\Learn-More\SelfCreation_One\自游飞机\obj\Debug\自游飞机.csproj.CoreCo
 E:\Learn-More\SelfCreation_One\自游飞机\obj\Debug\自游飞机.exe
 E:\Learn-More\SelfCreation_One\自游飞机\obj\Debug\自游飞机.pdb
 E:\Learn-More\SelfCreation_One\自游飞机\obj\Debug\自游飞机.csprojAssemblyReference.cache
+E:\Learn-More\SelfCreation_One\自游飞机\bin\Debug\Microsoft.DirectX.DirectSound.dll
+E:\Learn-More\SelfCreation_One\自游飞机\bin\Debug\Microsoft.DirectX.dll
+E:\Learn-More\SelfCreation_One\自游飞机\obj\Debug\自游飞机.csproj.CopyComplete

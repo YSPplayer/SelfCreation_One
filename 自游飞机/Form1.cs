@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 自游飞机.Properties;
 using System.Threading;
+//这个是要自己打dll引用，主要用于播放音乐
+using Microsoft.DirectX;
+using Microsoft.DirectX.DirectSound;
 
 namespace 自游飞机
 {
@@ -16,7 +19,6 @@ namespace 自游飞机
     {
         public static Graphics WindowG;
         public Thread thread;
-        //检查当前的按键按下的行为是否持续，持续就返回false
         private static bool isKeyDuration;
         public Form1()
         {
@@ -46,9 +48,9 @@ namespace 自游飞机
                  //tempG.Clear(Color.Black);
                  //tempG.Clear(Color.Black);
                  //tempG.DrawImage(bitmap, 0, 0);
-                // WindowG.DrawImage(bitmap, 0, 0);
-                //WindowG.DrawImage(bitmap2, 100, 0);
-                //WindowG.DrawImage(bitmap2, 0, 0);
+                 // WindowG.DrawImage(bitmap, 0, 0);
+                 //WindowG.DrawImage(bitmap2, 100, 0);
+                 //WindowG.DrawImage(bitmap2, 0, 0);
                 GameFramkWork.Update();
                 Thread.Sleep(sleepTime);
               }
@@ -144,6 +146,15 @@ namespace 自游飞机
         {
             MyPlane.KeyRelease(e);
             isKeyDuration = false;
+        }
+        /// <summary>
+        /// 加载窗体时用于加载播放音乐的设备
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Microsoft.DirectX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.DirectSound, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Microsoft.DirectX.DirectSound.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -149,14 +157,18 @@
     <None Include="Resources\Boss1.png" />
     <None Include="Resources\BossSkillPicture.png" />
     <None Include="Resources\BossLpf.png" />
-    <None Include="Resources\Blast.wav" />
     <None Include="Resources\Shoot.wav" />
     <None Include="Resources\Skill2.wav" />
     <None Include="Resources\Skill2.mp3" />
     <None Include="Resources\Skill1_1.wav" />
     <None Include="Resources\Skill2_1.wav" />
     <None Include="Resources\Shell_1.wav" />
+    <None Include="Resources\Blast.wav" />
+    <None Include="Resources\Background.wav" />
     <Content Include="函数使用说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
